@@ -1,6 +1,35 @@
+import modules.logManager as log
+
+log.settings.debug = True
+
+class logging:
+
+    DEBUG = False
+    INFO = False
+
+    def getLogger(*args):
+        return logging._log()
+    
+    def basicConfig(*args):
+        pass
+    
+    class _log:
+        def __init__(self):
+            pass
+
+        def error(self, strf):
+            log.printLog("error: " + str(strf))
+        
+        def info(self, strf):
+            log.printLog(strf)
+
+        def debug(self, strf):
+            log.printLog(strf)
+
+print = log.printLog
 
 def device_list():
-    import logging
+
     logger = logging.getLogger(f"device_list")
     import pyaudio
     p = pyaudio.PyAudio()
@@ -18,6 +47,5 @@ def device_list():
 
 
 if __name__ == "__main__":
-    import logging
     logging.basicConfig(level=logging.INFO)
     device_list()

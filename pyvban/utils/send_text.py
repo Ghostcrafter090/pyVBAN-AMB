@@ -1,4 +1,33 @@
-import logging
+import modules.logManager as log
+
+log.settings.debug = True
+
+class logging:
+
+    DEBUG = False
+    INFO = False
+
+    def getLogger(*args):
+        return logging._log()
+    
+    def basicConfig(*args):
+        pass
+    
+    class _log:
+        def __init__(self):
+            pass
+
+        def error(self, strf):
+            log.printLog("error: " + str(strf))
+        
+        def info(self, strf):
+            log.printLog(strf)
+
+        def debug(self, strf):
+            log.printLog(strf)
+
+print = log.printLog
+
 import socket
 
 from .. import VBANTextHeader
@@ -17,6 +46,7 @@ class VBAN_SendText:
 
         self._socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self._socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        self._socket.connect(self._receiver)
 
         self._frame_counter = 0
 
