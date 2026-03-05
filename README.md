@@ -3,7 +3,17 @@
 
 *WARNING*: 
 Note that this is incompatible with the VB-Audio software suite as the protocol has been fundamentally changed.
+
+This module can now be accessed via a command line interface: vban_stream.py
+
+```cmd
+py vban_stream.py --run --clients=<ReceiveFromAddress>,<SendToAddress> --speakerType=<SpeakerType> --hostname=<AmbienceServerHostAddress> 
+```
+
 -------
+
+## Old Protocol Documentation
+### The following documentation is No Longer Valid! I will NOT update it as this fork has fundementally changed the functionality of this project, and is no longer relevent. Backwards compatibility with the VBAudio Software Suite is no longer supported.
 
 Python implementation of the VBAN (VB Audio network) protocol
 
